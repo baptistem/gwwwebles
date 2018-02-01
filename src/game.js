@@ -28,7 +28,6 @@ function create(){
   game.physics.arcade.enable(tank)
   game.physics.arcade.enable(fly)
   game.physics.arcade.enable(rocks)
-  rocks.
 
   tank.body.collideWorldBounds = true;
   fly.body.collideWorldBounds = true;
