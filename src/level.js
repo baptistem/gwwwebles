@@ -1,26 +1,54 @@
-function make_border(game,tile_name){
-  border = game.add.group()
-  for (i = 0 ; i < game.height ; i+=32){
-    console.log(i)
-    border.create(0,i,tile_name)
-    border.create(game.width-32,i,tile_name)
+var $ = (x) => document.querySelector(x);
+let tiles = [];
+let rocks;
+
+function init_tiles( w, h) {
+
+  let tile_data = [];
+  let row = [];
+
+	for( let y=0; y<h; y++) {
+      let row = [];
+    	for( let x=0; x<w; x++) {
+          row.push( Math.round(Math.random()));
+    	}
+
+      tile_data.push( row);
+   }
+
+   return tile_data;
+}
+
+function make_border() {}
+
+function makeRocks( tile_data) {
+	rocks = game.add.group();
+
+  for( let y=0; y<tile_data.length; y++)
+    for( let x=0; x<tile_data[0].length; x++)
+    {
+    	if( tile_data[y][x] === 1) {
+      	rocks.create( x*32, y*32, 'sandblock');
+      }
+    }
+
+}
+
+function addBorder(tile_data){
+
+  for( let y=0; y<tile_data.length; y++) {
+  	tile_data[y][0] = 1;
+    tile_data[y][tile_data[0].length-1]=1;
   }
-  for (i = 32 ; i < game.width-32 ; i+=32){
-    border.create(i,0,tile_name)
-    border.create(i,game.height-32,tile_name)
+
+  for( let x=0; x<tile_data[0].length; x++) {
+    tile_data[0][x] = 1;
+    tile_data[tile_data.length-1][x] = 1;
   }
-  border.immovable = true
 }
 
 function fill(game,tile_name){
-  wall = game.add.group()
-  for (x = 32 ; x < game.width-32;x+=32){
-    for (y = 32 ; y < game.height-32;y+=32){
-      wall.create(x,y,tile_name)
-    }
-  }
-}
-
-function spirale(game){
-
+  game.tile_data = init_tiles( game.width/32, game.height/32);
+  addBorder(game.tile_data);
+  makeRocks(game.tile_data)
 }

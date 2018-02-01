@@ -27,6 +27,9 @@ function create(){
   fly = game.add.sprite(320,320,'fly')
   game.physics.arcade.enable(tank)
   game.physics.arcade.enable(fly)
+  game.physics.arcade.enable(rocks)
+  rocks.
+
   tank.body.collideWorldBounds = true;
   fly.body.collideWorldBounds = true;
   tank.anchor.set(0.5)
@@ -35,7 +38,7 @@ function create(){
 
 }
 function update(){
-  move = false
+  game.physics.arcade.collide(tank,rocks)
   tank.body.velocity.x = 0
   tank.body.velocity.y =0
   //tank.scale.x = 1
