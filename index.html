@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script type="text/javascript" src="lib/phaser.min.js" ></script>
+    <script type="text/javascript" src="src/game.js"></script>
+    <meta charset="UTF-8">
+    <title>gwwwebles</title>
+    <style>
+    html,body{
+      display:flex;
+      height:100%;
+      margin: 0 0 0 0;
+      width:100%;
+      padding:0 0 0 0;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #game{
+      background:grey;
+      height:600px;
+      width:800px;
+    }
+    </style>
+  </head>
+  <body>
+    <a href='#' onclick=init()>Play</a>
+    <div id="game">
+        <canvas  id="canvas">
+        </canvas>
+      </div>
+  </body>
+
+</html>
