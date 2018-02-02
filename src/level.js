@@ -28,7 +28,12 @@ function makeRocks( tile_data) {
     for( let x=0; x<tile_data[0].length; x++)
     {
     	if( tile_data[y][x] === 1) {
-      	rocks.create( x*32, y*32, 'sandblock');
+        if(y==0 || x==0 || y==(tile_data.length-1) || x==(tile_data[y].length-1)){
+          borders.create(x*32,y*32,'sandblock')
+        }
+      	else{
+          rocks.create( x*32, y*32, 'sandblock');
+        }
       }
     }
 
