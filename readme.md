@@ -14,7 +14,11 @@ see https://www.gnu.org/licenses/gpl-3.0.txt for licence
 
 # Things working #
 - movement
+- collision
+- block pushing
+- block destroying
 
 # Things not working #
-- colision
+- destroy animation
+- smooth movement (smooth block corner)
 - maze generation
